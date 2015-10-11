@@ -1,3 +1,13 @@
+Template.addExercise.helpers({
+  "exercise": function () {
+    // path: /exercise/:id
+    let id = FlowRouter.getParam('id')
+    console.log(id)
+    return Exercise.findOne(id);
+  }
+});
+
+
 Template.addExercise.events({
   "submit form": function (event) {
     event.preventDefault();
@@ -10,7 +20,7 @@ Template.addExercise.events({
     let t = event.target.inputType.value;
 
     // insert into db
-    var exercise = Exercises.insert({
+    let exerciseId = Exercises.insert({
       name: n,
       description: d,
       type: t
@@ -21,8 +31,9 @@ Template.addExercise.events({
     event.target.inputDescription.value = "";
     event.target.inputType.checked = false;
 
-    FlowRouter.go('/')
-    //FlowRouter.go('/exercise/'+exercise._id)
+
+    //FlowRouter.go('/')
+    FlowRouter.go('/exercise/' + exerciseId);
   }
 });
 
