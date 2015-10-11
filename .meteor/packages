@@ -21,6 +21,6 @@ insecure                # Allow all DB writes from clients (for prototyping)
 
 kadira:flow-router
 kadira:blaze-layout
-dburles:eslint
+#dburles:eslint
 fezvrasta:bootstrap-material-design
 accounts-ui
