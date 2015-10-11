@@ -1,4 +1,4 @@
-Template.addExercise.helpers({
+Template.exercise.helpers({
   "exercise": () => {
     // path: /exercise/edit/:id
     let id = FlowRouter.getParam('id');
@@ -7,12 +7,9 @@ Template.addExercise.helpers({
   }
 });
 
-
-Template.addExercise.events({
+Template.exercise.events({
   "submit form": (event) => {
     event.preventDefault();
-
-    console.log(event.target);
 
     // get values from form
     let n = event.target.inputName.value;
@@ -26,18 +23,11 @@ Template.addExercise.events({
       type: t
     });
 
-    // clear form
-    event.target.inputName.value = "";
-    event.target.inputDescription.value = "";
-    event.target.inputType.checked = false;
-
-
-    //FlowRouter.go('/')
     FlowRouter.go('/exercises/' + exerciseId);
   }
 });
 
-Template.addExercise.onRendered(
+Template.exercise.onRendered(
   () => {
     // initialize material library
     $.material.init()
