@@ -13,6 +13,7 @@ Template.addExercise.events({
     });
 
     event.target.inputName.value = "";
-    event.target.inputDescription = ""
+    event.target.inputDescription = "";
+    event.target.inputType.checked = false;
   }
 });
