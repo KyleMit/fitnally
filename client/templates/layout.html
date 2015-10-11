@@ -1,10 +1,23 @@
+<!--<body>-->
+  <!--{{> applicationLayout}}-->
+<!--</body>-->
+
+<!--&lt;!&ndash; For Flow Router &ndash;&gt;-->
+<!--<template name="applicationLayout">-->
+  <!--{{> Template.dynamic template=header}}-->
+  <!--{{> Template.dynamic template=main}}-->
+  <!--{{> Template.dynamic template=footer}}-->
+<!--</template>-->
+
 <body>
-  {{> applicationLayout}}
+  {{> mainLayout}}
 </body>
 
-<!-- For Flow Router -->
-<template name="applicationLayout">
-  {{> Template.dynamic template=header}}
-  {{> Template.dynamic template=main}}
-  {{> Template.dynamic template=footer}}
+<template name="mainLayout">
+  <!--<header><h1>Kadira Blog</h1></header>-->
+  {{> navbar}}
+  <main>
+    {{>Template.dynamic template=content}}
+  </main>
+  <!--<footer>We love Meteor</footer>-->
 </template>
