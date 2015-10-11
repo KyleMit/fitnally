@@ -1,0 +1,14 @@
+
+.navbar .navbar-accounts {
+    background-color: white;
+}
+.navbar .navbar-nav.navbar-accounts .dropdown-toggle {
+    background-color: #009688;
+}
+#login-dropdown-list {
+    padding: 15px;
+}
+
+#login-dropdown-list > .dropdown-menu {
+    padding: 20px;
+}
