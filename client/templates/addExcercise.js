@@ -1,9 +1,9 @@
 Template.addExercise.helpers({
   "exercise": function () {
-    // path: /exercise/:id
-    let id = FlowRouter.getParam('id')
-    console.log(id)
-    return Exercise.findOne(id);
+    // path: /exercise/edit/:id
+    let id = FlowRouter.getParam('id');
+    console.log(id);
+    return Exercises.findOne(id);
   }
 });
 
@@ -33,7 +33,7 @@ Template.addExercise.events({
 
 
     //FlowRouter.go('/')
-    FlowRouter.go('/exercise/' + exerciseId);
+    FlowRouter.go('/exercise/edit/' + exerciseId);
   }
 });
 
