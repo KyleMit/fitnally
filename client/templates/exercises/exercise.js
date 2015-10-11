@@ -1,3 +1,10 @@
+Template.exercise.onCreated(function() {
+  this.autorun(() => {
+    let id = FlowRouter.getParam('id');
+    this.subscribe('singleExercise', id)
+  })
+})
+
 Template.exercise.helpers({
   "exercise": () => {
     // path: /exercise/edit/:id
@@ -26,13 +33,14 @@ Template.exercise.events({
     // grab id (if we have one)
     let id = FlowRouter.getParam('id')
 
-    // insert into db
-    let result = Exercises.upsert(id, e);
+    console.log('id' + id)
 
-    // get resulting ID or id from route
-    let resultID = result.insertedId || id
 
-    FlowRouter.go('/exercises/' + resultID);
+    Meteor.call('insertExercise', e, id,
+      (error, result) => {
+        FlowRouter.go('/exercises/' + result._id);
+    });
+
   }
 });
 
