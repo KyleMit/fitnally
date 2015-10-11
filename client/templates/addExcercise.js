@@ -2,6 +2,8 @@ Template.addExercise.events({
   "submit form": function (event) {
     event.preventDefault();
 
+    console.log(event.target);
+
     // get values from form
     let n = event.target.inputName.value;
     let d = event.target.inputDescription;
