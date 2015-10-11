@@ -1,3 +1,57 @@
 <template name="addExercise">
-  <p>Add an exercise</p>
+
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Add an exercise</legend>
+
+            <div class="form-group">
+                <label for="inputName" class="col-lg-2 control-label">Exercise Name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control floating-label" name="inputName" id="inputName" placeholder="Exercise Name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputDescription" class="col-lg-2 control-label">Exercise Description</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control floating-label" rows="3" name="inputDescription" id="inputDescription"></textarea>
+                    <span class="help-block">Any comments on form or way the exercise should be preformed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Free Weight / Machine</label>
+                <div class="col-lg-10">
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="inputType" id="inputType1" value="Free Weight" checked="">
+                            Free Weight
+                        </label>
+                    </div>
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="inputType" id="inputType2" value="Machine">
+                            Machine
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Picture Later
+            <div class="form-group">
+                <label for="inputFile" class="col-lg-2 control-label">Picture of Routine</label>
+                <div class="col-lg-10">
+                    <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
+                </div>
+            </div>
+            -->
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <input type="reset" class="btn btn-warning" value="Cancel"/>
+                    <input type="submit" class="btn btn-primary" value="Save"/>
+                </div>
+            </div>
+        </fieldset>
+    </form>
 </template>
