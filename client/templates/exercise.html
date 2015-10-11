@@ -1,7 +1,13 @@
 <template name="exercise">
     <form class="form-horizontal">
         <fieldset>
-            <legend>Add an exercise - {{exercise.name}}</legend>
+            <legend>
+                {{#if exercise}}
+                    {{exercise.name}}
+                {{else}}
+                    Add an exercise
+                {{/if}}
+            </legend>
 
             <div class="form-group">
                 <label for="inputName" class="col-lg-2 control-label">Exercise Name</label>
@@ -16,7 +22,7 @@
                     Exercise Description
                 </label>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="3"
+                    <textarea class="form-control" rows="3" value="{{exercise.description}}"
                               name="inputDescription" id="inputDescription" required></textarea>
                     <span class="help-block">
                         Any comments on form or way the exercise should be preformed
@@ -30,14 +36,16 @@
                     <div class="radio radio-primary">
                         <label>
                             <input name="inputType" id="inputType1"
-                                   type="radio" value="Free Weight" required>
+                                   type="radio" value="Free Weight" required
+                                   checked="{{#if equals exercise.type 'Free Weight'}}true{{/if}}">
                             Free Weight
                         </label>
                     </div>
                     <div class="radio radio-primary">
                         <label>
                             <input name="inputType" id="inputType2"
-                                   type="radio" value="Machine" required>
+                                   type="radio" value="Machine" required
+                                   checked="{{#if equals exercise.type 'Machine'}}true{{/if}}">
                             Machine
                         </label>
                     </div>
@@ -56,7 +64,12 @@
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                     <input type="reset" class="btn btn-warning" value="Cancel"/>
-                    <input type="submit" class="btn btn-primary" value="Save"/>
+                    {{#if exercise}}
+                        <input type="submit" class="btn btn-primary" value="Update"/>
+                    {{else}}
+                        <input type="submit" class="btn btn-primary" value="Create"/>
+                    {{/if}}
+
                 </div>
             </div>
         </fieldset>
