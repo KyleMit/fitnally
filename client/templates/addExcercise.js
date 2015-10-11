@@ -6,11 +6,11 @@ Template.addExercise.events({
 
     // get values from form
     let n = event.target.inputName.value;
-    let d = event.target.inputDescription;
-    let t = event.target.inputType;
+    let d = event.target.inputDescription.value;
+    let t = event.target.inputType.value;
 
     // insert into db
-    Exercises.insert({
+    var exercise = Exercises.insert({
       name: n,
       description: d,
       type: t
@@ -18,8 +18,11 @@ Template.addExercise.events({
 
     // clear form
     event.target.inputName.value = "";
-    event.target.inputDescription = "";
+    event.target.inputDescription.value = "";
     event.target.inputType.checked = false;
+
+    FlowRouter.go('/')
+    //FlowRouter.go('/exercise/'+exercise._id)
   }
 });
 
