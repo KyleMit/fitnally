@@ -33,9 +33,6 @@ Template.exercise.events({
     // grab id (if we have one)
     let id = FlowRouter.getParam('id')
 
-    console.log('id' + id)
-
-
     Meteor.call('insertExercise', e, id,
       (error, result) => {
         FlowRouter.go('/exercises/' + result._id);
